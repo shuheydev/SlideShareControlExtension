@@ -1,4 +1,4 @@
-(async function () {
+$(async function () {
     const connection = new signalR.HubConnectionBuilder()
         .withUrl('https://signalrcorepractice20191006060526.azurewebsites.net/chathub')
         .withAutomaticReconnect({
@@ -20,19 +20,20 @@
         console.log("connected");
     });
 
+    let btnNext = $('#btnNext');
+    let btnPrev = $('#btnPrevious');
+
     //サーバーからのメッセージ受信時の処理
     connection.on('receive', function (message, from) { //サーバー側からこのreceiveが呼び出されたときに実行されるfunctionを登録する
         console.log(message);
 
         document.body.style.background = message;
 
-        if (message.match(/next/)){
-            let btn = document.getElementById('btnNext');
-            btn.click();
+        if (message.match(/next/)) {
+            btnNext.click();
         }
         else if (message.match(/prev/)) {
-            let btn = document.getElementById('btnPrevious');
-            btn.click();
+            btnPrev.click();
         }
     });
 
@@ -82,4 +83,4 @@
 
         return div1;
     }
-})();
+});

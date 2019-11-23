@@ -1,20 +1,19 @@
 {
-    "manifest_version": 2,
-    "name": "SlideShareControl",
-    "description": "SignalR経由でSlideShareを操作する拡張機能",
-    "version": "1.7",
-    "content_scripts": [
-        {
-          "run_at":"document_end",
-          "matches": ["https://www.slideshare.net/*/*"],
-          "js": [
-            "lib/signalr/dist/browser/signalr.js",
-            "lib/jquery/jquery_3.4.1.min.js",
-            "content_script.js"]
-        }
+  "manifest_version": 2,
+  "name": "SlideShareControl",
+  "description": "SignalR経由でSlideShareを操作する拡張機能",
+  "version": "1.93",
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "<all_urls>"
       ],
-    "permissions": [
-      "activeTab",
-      "declarativeContent"
-    ]
+      "js": [
+        "lib/jquery/jquery-3.4.1.min.js",
+        "lib/signalr/dist/browser/signalr.min.js",
+        "content_script.js"
+      ]
+    }
+  ]
 }
